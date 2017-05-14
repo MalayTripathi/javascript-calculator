@@ -1,10 +1,8 @@
 <html>
 
 <head>
-    <style>
-        #calc{width:300px;height:250px;}
-        #btn{width:100%;height:40px;font-size:20px;}
-    </style>
+    <link rel = "stylesheet" type ="text/css" href = "/stylesheets/style.css">
+    <script type = "text/javascript" src = "/javascripts/frontend.js"></script>
 </head>
 
 <body>
@@ -12,33 +10,36 @@
     <p>{{subHead}}</p>
     <br/>
     <form>
-        <table id="calc" border=2>
+        <table id="calc">
             <tr>
-                <td colspan=4><input id="btn" name="display" type="text"></td>
+                <td colspan=4><input id="display-panel" class = "calcdisp" name="display" type="text"></td>
             </tr>
             <tr>
-                <td><input id="btn" type=button value="1" OnClick="calc.display.value+='1'"></td>
-                <td><input id="btn" type=button value="2" OnClick="calc.display.value+='2'"></td>
-                <td><input id="btn" type=button value="3" OnClick="calc.display.value+='3'"></td>
-                <td><input id="btn" type=button value="+" OnClick="calc.display.value+='+'"></td>
+                <td colspan=4><input id="entry-panel" class = "calcdisp" name="entry" type="text"></td>
             </tr>
             <tr>
-                <td><input id="btn" type=button value="4" OnClick="calc.display.value+='4'"></td>
-                <td><input id="btn" type=button value="5" OnClick="calc.display.value+='5'"></td>
-                <td><input id="btn" type=button value="6" OnClick="calc.display.value+='6'"></td>
-                <td><input id="btn" type=button value="-" OnClick="calc.display.value+='-'"></td>
+                <td><input id="btn-1" class = "calcbut" type=button value="1" OnClick="recordButton(document.getElementById('btn-1').value)"></td>
+                <td><input id="btn-2" class = "calcbut" type=button value="2" OnClick="recordButton(document.getElementById('btn-2').value)"></td>
+                <td><input id="btn-3" class = "calcbut" type=button value="3" OnClick="recordButton(document.getElementById('btn-3').value)"></td>
+                <td><input id="btn-add" class = "calcbut" type=button value="+" OnClick="operandPush(document.getElementById('btn-add').value)"></td>
             </tr>
             <tr>
-                <td><input id="btn" type=button value="7" OnClick="calc.display.value+='7'"></td>
-                <td><input id="btn" type=button value="8" OnClick="calc.display.value+='8'"></td>
-                <td><input id="btn" type=button value="9" OnClick="calc.display.value+='9'"></td>
-                <td><input id="btn" type=button value="x" OnClick="calc.display.value+='*'"></td>
+                <td><input id="btn-4" class = "calcbut" type=button value="4" OnClick="recordButton(document.getElementById('btn-4').value)"></td>
+                <td><input id="btn-5" class = "calcbut" type=button value="5" OnClick="recordButton(document.getElementById('btn-5').value)"></td>
+                <td><input id="btn-6" class = "calcbut" type=button value="6" OnClick="recordButton(document.getElementById('btn-6').value)"></td>
+                <td><input id="btn-sub" class = "calcbut" type=button value="-" OnClick="operandPush(document.getElementById('btn-sub').value)"></td>
             </tr>
             <tr>
-                <td><input id="btn" type=button value="±" OnClick="calc.display.value=(calc.display.value==Math.abs(calc.display.value)?-(calc.display.value):Math.abs(calc.display.value))"></td>
-                <td><input id="btn" type=button value="0" OnClick="calc.display.value+='0'"></td>
-                <td><input id="btn" type=button value="=" OnClick="calc.display.value=eval(calc.display.value)"></td>
-                <td><input id="btn" type=button value="/" OnClick="calc.display.value+='/'"></td>
+                <td><input id="btn-7" class = "calcbut" type=button value="7" OnClick="recordButton(document.getElementById('btn-7').value)"></td>
+                <td><input id="btn-8" class = "calcbut" type=button value="8" OnClick="recordButton(document.getElementById('btn-8').value)"></td>
+                <td><input id="btn-9" class = "calcbut" type=button value="9" OnClick="recordButton(document.getElementById('btn-9').value)"></td>
+                <td><input id="btn-mul" class = "calcbut" type=button value="x" OnClick="operandPush(document.getElementById('btn-mul').value)"></td>
+            </tr>
+            <tr>
+                <td><input id="btn-neg" class = "calcbut" type=button value="±" OnClick=""></td>
+                <td><input id="btn-0" class = "calcbut" type=button value="0" OnClick="recordButton(document.getElementById('btn-0').value)"></td>
+                <td><input id="btn-res" class = "calcbut" type=button value="=" OnClick="result()"></td>
+                <td><input id="btn-div" class = "calcbut" type=button value="/" OnClick="operandPush(document.getElementById('btn-div').value)"></td>
             </tr>
         </table>
     </form>

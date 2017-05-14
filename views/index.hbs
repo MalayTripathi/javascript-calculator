@@ -1,2 +1,46 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<html>
+
+<head>
+    <style>
+        #calc{width:300px;height:250px;}
+        #btn{width:100%;height:40px;font-size:20px;}
+    </style>
+</head>
+
+<body>
+    <h1>{{pageTitle}}</h1>
+    <p>{{subHead}}</p>
+    <br/>
+    <form>
+        <table id="calc" border=2>
+            <tr>
+                <td colspan=4><input id="btn" name="display" type="text"></td>
+            </tr>
+            <tr>
+                <td><input id="btn" type=button value="1" OnClick="calc.display.value+='1'"></td>
+                <td><input id="btn" type=button value="2" OnClick="calc.display.value+='2'"></td>
+                <td><input id="btn" type=button value="3" OnClick="calc.display.value+='3'"></td>
+                <td><input id="btn" type=button value="+" OnClick="calc.display.value+='+'"></td>
+            </tr>
+            <tr>
+                <td><input id="btn" type=button value="4" OnClick="calc.display.value+='4'"></td>
+                <td><input id="btn" type=button value="5" OnClick="calc.display.value+='5'"></td>
+                <td><input id="btn" type=button value="6" OnClick="calc.display.value+='6'"></td>
+                <td><input id="btn" type=button value="-" OnClick="calc.display.value+='-'"></td>
+            </tr>
+            <tr>
+                <td><input id="btn" type=button value="7" OnClick="calc.display.value+='7'"></td>
+                <td><input id="btn" type=button value="8" OnClick="calc.display.value+='8'"></td>
+                <td><input id="btn" type=button value="9" OnClick="calc.display.value+='9'"></td>
+                <td><input id="btn" type=button value="x" OnClick="calc.display.value+='*'"></td>
+            </tr>
+            <tr>
+                <td><input id="btn" type=button value="±" OnClick="calc.display.value=(calc.display.value==Math.abs(calc.display.value)?-(calc.display.value):Math.abs(calc.display.value))"></td>
+                <td><input id="btn" type=button value="0" OnClick="calc.display.value+='0'"></td>
+                <td><input id="btn" type=button value="=" OnClick="calc.display.value=eval(calc.display.value)"></td>
+                <td><input id="btn" type=button value="/" OnClick="calc.display.value+='/'"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

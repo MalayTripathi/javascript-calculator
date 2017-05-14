@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var add = require('../api/add')
+var calculator = require('../api/calculator')
 
-router.get('/add', add.get);
+router.post('/add', calculator.add);
 
 module.exports = router;

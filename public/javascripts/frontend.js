@@ -22,19 +22,71 @@ function operandPush(value)
 function result(){
     var entry = document.getElementById("entry-panel");
     stack.push(parseInt(entry.value));
+    var display = document.getElementById("display-panel");
+    display.value = `${stack[0]} ${stack[1]} ${stack[2]}`;
     obj["first"] = stack[0];
     obj["oper"] = stack[1];
     obj["sec"] = stack[2];
-    axios.post('/api/add', obj)
-    .then(function (response) 
+    switch(obj["oper"])
     {
-        if(response.data.status == 'Success')
+        case '+':
+        axios.post('/api/add', obj)
+        .then(function (response) 
         {
-            console.log(JSON.stringify(response.data));
-        }
-    })
-    .catch(function (error)
-    {
-        console.log(error);
-    });
+            if(response.data.status == 'Success')
+            {
+                entry.value = response.data.result;
+            }
+        })
+        .catch(function (error)
+        {
+            console.log(error);
+        });
+        break;
+        case '-':
+        axios.post('/api/sub', obj)
+        .then(function (response)
+        {
+            if(response.data.status == 'Success')
+            {
+                entry.value = response.data.result;
+            }
+        })
+        .catch(function(error){
+            console.log(error);
+        });
+        break;
+        case '*':
+        axios.post('/api/mul', obj)
+        .then(function (response)
+        {
+            if(response.data.status == 'Success')
+            {
+                entry.value = response.data.result;
+            }
+        })
+        .catch(function(error){
+            console.log(error);
+        });
+        break;
+        case '/':
+        axios.post('/api/div', obj)
+        .then(function (response)
+        {
+            if(response.data.status == 'Success')
+            {
+                entry.value = response.data.result;
+            }
+        })
+        .catch(function(error){
+            console.log(error);
+        });
+        break;
+    }
+}
+
+function negate()
+{
+    var entry = document.getElementById("entry-panel");
+    entry.value = -entry.value;
 }

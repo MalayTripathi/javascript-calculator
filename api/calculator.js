@@ -1,16 +1,21 @@
 module.exports = {
     add : function (req, res, next){
-        var a = parseInt(req.body.a);
-        var b = parseInt(req.body.b);
-        var c = a + b;
-        res.json({status: "Success", a: a, b: b, result: c});
+        console.log(req);
+        var first = parseInt(req.body.first);
+        var sec = parseInt(req.body.sec);
+        var res = first + sec;
+        res.json({status: "Success", first: first, sec: sec, result: res});
     },
     sub : function (req, res, next){
         var a = req.body.a
         var b = req.body.b
-        if(a>0 && b>0)
+        if(a<0 && b<0)
         {
-            return 
+            return -(b+a);
+        }
+        else
+        {
+            return (a-b);
         }
     }
 }

@@ -1,5 +1,6 @@
 var enteredValue = 0;
 var stack = [];
+var obj = {};
 
 function recordButton(value)
 {   
@@ -21,5 +22,15 @@ function operandPush(value)
 function result(){
     var entry = document.getElementById("entry-panel");
     stack.push(parseInt(entry.value));
-    console.log(stack);
+    obj["first"] = stack[0];
+    obj["oper"] = stack[1];
+    obj["sec"] = stack[2];
+    console.log(obj);
+    axios.post('/api/add', obj).then(function (response) 
+    {
+        console.log(response);
+    }).catch(function (error)
+    {
+        console.log(error);
+    });
 }

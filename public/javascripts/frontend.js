@@ -25,11 +25,15 @@ function result(){
     obj["first"] = stack[0];
     obj["oper"] = stack[1];
     obj["sec"] = stack[2];
-    console.log(obj);
-    axios.post('/api/add', obj).then(function (response) 
+    axios.post('/api/add', obj)
+    .then(function (response) 
     {
-        console.log(response);
-    }).catch(function (error)
+        if(response.data.status == 'Success')
+        {
+            console.log(JSON.stringify(response.data));
+        }
+    })
+    .catch(function (error)
     {
         console.log(error);
     });

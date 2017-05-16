@@ -22,7 +22,6 @@ module.exports = {
         {
             result = (first-sec);
         }
-        console.log(result);
         res.json({ 
             status: "Success", 
             first: first, 
